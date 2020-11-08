@@ -55,7 +55,7 @@ export const Map: React.FC = () => {
         >
           <div className={styles.mapSearchBox}>
             <input type="search" placeholder="Find a city or a place" />
-            {!Boolean(error) && <Locate onClick={findLocation} title="Find my position" className={state.userLocation == state.position ? 'active' : ''} />}
+            {!Boolean(error) && <Locate onClick={findLocation} title="Find my position" className={state.userLocation === state.position ? 'active' : ''} />}
           </div>
         </StandaloneSearchBox>
         <Marker position={state.position} />
