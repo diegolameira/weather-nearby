@@ -6,11 +6,15 @@ import {
   Marker,
 } from '@react-google-maps/api';
 
+import { ReactComponent as Locate } from 'assets/locate.svg';
 import styles from 'styles/components.module.scss';
+import { usePosition } from 'hooks/usePosition';
 
 export const Map: React.FC = () => {
+  const { error, position: userPosition, findLocation } = usePosition()
   const searchRef = React.useRef<any>();
   const [state, setState] = React.useState({
+    userLocation: {},
     position: {},
     mapContainerStyle: {
       width: '100vw',
@@ -33,6 +37,12 @@ export const Map: React.FC = () => {
     setState((currentState) => ({ ...currentState, position, center: position }));
   };
 
+  React.useEffect(() => {
+    if (!userPosition) return;
+    const position = { lat: userPosition.latitude, lng: userPosition.longitude };
+    setState((currentState) => ({ ...currentState, position, center: position, userLocation: position }));
+  }, [userPosition])
+
   return (
     <LoadScript
       googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY || ''}
@@ -43,7 +53,10 @@ export const Map: React.FC = () => {
           onLoad={(ref) => (searchRef.current = ref)}
           onPlacesChanged={handlePlacesChange}
         >
-          <input type="search" placeholder="Find a city or a place" className={styles.mapSearchBox} />
+          <div className={styles.mapSearchBox}>
+            <input type="search" placeholder="Find a city or a place" />
+            {!Boolean(error) && <Locate onClick={findLocation} title="Find my position" className={state.userLocation == state.position ? 'active' : ''} />}
+          </div>
         </StandaloneSearchBox>
         <Marker position={state.position} />
       </GoogleMap>

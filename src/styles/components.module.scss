@@ -30,16 +30,39 @@
 .mapSearchBox {
   display: none;
   @media (min-width: 768px) {
-    display: block;
+    display: flex;
     position: fixed;
     margin: 2rem;
     top: 0;
     left: 0;
-    min-width: 320px;
-    font-size: 1rem;
-    line-height: 1;
-    padding: .8rem 1.2rem;
-    border-radius: 3000px;
-    border: 1px solid rgba(0,0,0,.10);
+
+    input {
+      min-width: 320px;
+      font-size: 1rem;
+      line-height: 1;
+      padding: .8rem 1.2rem;
+      border-radius: 3000px;
+      border: 1px solid rgba(0,0,0,.10);
+    }
+
+    input + svg {
+      fill: #a4a4a4;
+      display: block;
+      padding: .8rem;
+      border-radius: 3000px;
+      margin-left: 1rem;
+      background: rgba(0,0,0,1);
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(0,0,0,.7);
+      }
+
+      &[class="active"],
+      &:focus {
+        background: #EA4335;
+        fill: #000;
+      }
+    }
   }
 }
