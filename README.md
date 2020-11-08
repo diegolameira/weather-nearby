@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Environment Variables
+
+Duplicate the file on root called `.env.sample` naming it as `.env.local` (git will ignored it).
+
+Set your env vars and your good to go.
+
 ## Available Scripts
 
 In the project directory, you can run:
