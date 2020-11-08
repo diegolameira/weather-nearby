@@ -1,0 +1,3 @@
+* text=auto eol=lf
+schema.json linguist-generated
+*.pbxproj -text
