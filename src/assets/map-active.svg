@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39.467" height="36.133" viewBox="0 0 39.467 36.133">
+  <g id="Map_Button" data-name="Map Button" transform="translate(1.4 1.4)">
+    <path id="Path_12" data-name="Path 12" d="M1.667,10V36.667L13.333,30l13.333,6.667L38.333,30V3.333L26.667,10,13.333,3.333Z" transform="translate(-1.667 -3.333)" fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+    <path id="Path_13" data-name="Path 13" d="M13.333,3.333V30" transform="translate(-1.667 -3.333)" fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+    <path id="Path_14" data-name="Path 14" d="M26.667,10V36.667" transform="translate(-1.667 -3.333)" fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  </g>
+</svg>

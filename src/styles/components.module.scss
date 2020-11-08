@@ -1,0 +1,28 @@
+.nav {
+  background: rgba(0,0,0,1);
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+
+  a {
+    display: block;
+    padding: 1rem 2rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    width: auto;
+    margin: 2rem;
+    left: 50vw;
+    transform: translateX(-50%);
+    border-radius: 3000px;
+
+    a:nth-child(2) {
+      display: none;
+    }
+  }
+}
