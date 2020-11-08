@@ -1,22 +1,21 @@
-import * as React from 'react'
-import { RouteComponentProps } from "@reach/router"
+import * as React from 'react';
+import { RouteComponentProps } from '@reach/router';
 
-import { List } from 'components/list'
+import styles from 'styles/pages.module.scss';
+import { List } from 'components/list';
 
 interface Props extends RouteComponentProps {}
 export const ListScreen: React.FC<Props> = () => {
   return (
-    <>
-      <h1>ListScreen</h1>
-      <List items={
-        Array(15).fill({
-          weather: 'PartlyCloudy',
-          current: 19,
-          title: 'Barra da Tijuca',
-          min: 19,
-          max: 29,
-        })
-      } />
-    </>
-  )
-}
+    <div className={styles.listScreen}>
+      <List
+        header={
+          <>
+            <h1>Weather Now</h1>
+            <h2>Nearby locations</h2>
+          </>
+        }
+      />
+    </div>
+  );
+};

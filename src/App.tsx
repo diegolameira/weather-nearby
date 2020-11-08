@@ -1,25 +1,36 @@
 import * as React from 'react';
+import { useMediaQuery } from 'react-responsive'
 import { Router } from "@reach/router";
+import { LoadScript } from '@react-google-maps/api';
 
-import { MapScreen } from 'pages/map';
+import { HomeScreen } from 'pages/home';
 import { ListScreen } from 'pages/list';
-import { SearchScreen } from 'pages/search';
 import { DetailScreen } from 'pages/detail';
-import { NotFound } from 'pages/404';
 
 import { Navbar } from 'components/navbar';
 
 export default function App() {
+  const isPhone = useMediaQuery({
+    query: '(max-width: 1023px)'
+  })
+
   return (
-    <div>
+    <LoadScript
+      googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY || ''}
+      libraries={['places']}
+    >
       <Router>
-        <MapScreen path="/" />
-        <ListScreen path="/list" />
-        <SearchScreen path="/search" />
-        <DetailScreen path="/detail" />
-        <NotFound default />
+        {
+          isPhone && (
+            <>
+              <ListScreen path="/list" />
+              <DetailScreen path="/detail" />
+            </>
+          )
+        }
+        <HomeScreen default />
       </Router>
       <Navbar />
-    </div>
+    </LoadScript>
   );
 }

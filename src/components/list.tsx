@@ -5,19 +5,36 @@ import { WeatherIcon } from 'components/weather-icon'
 import styles from 'styles/components.module.scss';
 
 interface ListProps {
-  items: ListItemProps[]
+  header?: React.ReactNode,
+  items?: ListItemProps[]
 }
-export const List: React.FC<ListProps> = ({ items }) => {
-
+export const List: React.FC<ListProps> = ({ items, header }) => {
   return (
-    <ul className={styles.list}>
-      {
-        items.map((item, idx) => (
-          <ListItem key={idx} {...item} />
-        ))
-      }
-    </ul>
+    <div className={styles.list}>
+      <header>
+        {header}
+      </header>
+      <main>
+        <ul>
+          {
+            items?.map((item, idx) => (
+              <ListItem key={idx} {...item} />
+            ))
+          }
+        </ul>
+      </main>
+    </div>
   )
+}
+
+List.defaultProps = {
+  items: Array(30).fill({
+    weather: 'PartlyCloudy',
+    current: 19,
+    title: 'Barra da Tijuca',
+    min: 19,
+    max: 29,
+  })
 }
 
 interface ListItemProps {

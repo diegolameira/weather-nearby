@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {
   GoogleMap,
-  LoadScript,
   StandaloneSearchBox,
   Marker,
+  StandaloneSearchBoxProps,
 } from '@react-google-maps/api';
 
 import { ReactComponent as Locate } from 'assets/locate.svg';
@@ -44,22 +44,29 @@ export const Map: React.FC = () => {
   }, [userPosition])
 
   return (
-    <LoadScript
-      googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY || ''}
-      libraries={['places']}
-    >
-      <GoogleMap onClick={handleClick} {...state}>
-        <StandaloneSearchBox
-          onLoad={(ref) => (searchRef.current = ref)}
-          onPlacesChanged={handlePlacesChange}
-        >
-          <div className={styles.mapSearchBox}>
-            <input type="search" placeholder="Find a city or a place" />
-            {!Boolean(error) && <Locate onClick={findLocation} title="Find my position" className={state.userLocation === state.position ? 'active' : ''} />}
-          </div>
-        </StandaloneSearchBox>
-        <Marker position={state.position} />
-      </GoogleMap>
-    </LoadScript>
+    <GoogleMap onClick={handleClick} {...state}>
+      <SearchBox
+        onLoad={(ref) => (searchRef.current = ref)}
+        onPlacesChanged={handlePlacesChange}
+      >
+        {!Boolean(error) && <Locate onClick={findLocation} title="Find my position" className={state.userLocation === state.position ? 'active' : ''} />}
+      </SearchBox>
+      <Marker position={state.position} />
+    </GoogleMap>
   );
 };
+
+interface SearchBoxProps extends StandaloneSearchBoxProps {}
+export const SearchBox: React.FC<SearchBoxProps> = ({ onLoad, onPlacesChanged, children }) => {
+  return (
+    <StandaloneSearchBox
+      onLoad={onLoad}
+      onPlacesChanged={onPlacesChanged}
+    >
+      <div className={styles.searchBox}>
+        <input type="search" placeholder="Find a city or a place" />
+        {children}
+      </div>
+    </StandaloneSearchBox>
+  )
+}
