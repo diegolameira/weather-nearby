@@ -1,5 +1,12 @@
 {
   "name": "weather-nearby",
+  "description": "See how is the weather around the world or nearby you, Wonderfully!",
+  "author": {
+    "name": "Diego Lameira",
+    "email": "diegolameira@me.com",
+    "url": "https://github.com/diegolameira"
+  },
+  "license": "MIT",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
