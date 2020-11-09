@@ -9,7 +9,7 @@
     <br />
     <a href="https://weather-nearby.vercel.app/">Visit</a>
     ·
-    <a href="https://github.com/diegolameira/weather-nearby/projects">Know more</a>
+    <a href="https://github.com/diegolameira/weather-nearby/projects/1">The Project</a>
   </p>
 </p>
 
