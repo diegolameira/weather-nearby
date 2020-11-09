@@ -1,9 +1,17 @@
-.homeScreen {}
-.detailScreen {}
+.logo {
+  position: fixed;
+  z-index: 1;
+  top: 2rem;
+  right: 2rem;
+}
 
+.homeScreen {}
+
+.detailScreen,
 .listScreen {
+  z-index: 2;
   header {
-    padding: 0 2rem;
+    padding-bottom: 2rem;
   }
 
   @media (min-width: 1024px) {
@@ -24,10 +32,6 @@
   background: #fff;
   width: 100vw;
   height: 70vh;
-
-  header {
-    padding: 0 2rem;
-  }
 
   @media (min-width: 768px) {
     position: absolute;
@@ -58,5 +62,9 @@
       display: block;
     }
   }
+
+}
+
+.detailScreen {
 
 }

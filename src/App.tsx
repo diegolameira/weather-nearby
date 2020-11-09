@@ -8,6 +8,7 @@ import { ListScreen } from 'pages/list';
 import { DetailScreen } from 'pages/detail';
 
 import { Navbar } from 'components/navbar';
+import { CitiesProvider } from 'contexts/cities';
 
 export default function App() {
   const isPhone = useMediaQuery({
@@ -19,18 +20,20 @@ export default function App() {
       googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY || ''}
       libraries={['places']}
     >
-      <Router>
-        {
-          isPhone && (
-            <>
-              <ListScreen path="/list" />
-              <DetailScreen path="/detail" />
-            </>
-          )
-        }
-        <HomeScreen default />
-      </Router>
-      <Navbar />
+      <CitiesProvider>
+        <Router>
+          {
+            isPhone && (
+              <>
+                <ListScreen path="/list" />
+                <DetailScreen path="/detail/:id" />
+              </>
+            )
+          }
+          <HomeScreen default />
+        </Router>
+        <Navbar />
+      </CitiesProvider>
     </LoadScript>
   );
 }
