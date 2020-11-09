@@ -1,6 +1,48 @@
-# Getting Started with Create React App
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/1857527/98501314-8ed30980-222d-11eb-8c0a-0976aaf68591.png" align="center" style="margin: 0 auto;" />
+</p>
+<h1 align="center">The Weather Nearby</h1>
+<p align="center">
+See how is the weather around the world or nearby you, Wonderfully!
+</p>
+
+<br />
+<br />
+<br />
+
+<!-- omit in toc -->
+# Table of Contents
+- [Introduction](#introduction)
+  - [Technologies](#technologies)
+- [Getting Started](#getting-started)
+  - [Environment Variables](#environment-variables)
+  - [Available Scripts](#available-scripts)
+    - [`yarn start`](#yarn-start)
+    - [`yarn test`](#yarn-test)
+    - [`yarn build`](#yarn-build)
+    - [`yarn eject`](#yarn-eject)
+- [Learn More](#learn-more)
+  - [TODO List](#todo-list)
+    - [Nerd Statistics](#nerd-statistics)
+
+# Introduction
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Take a look over how it was done: https://github.com/diegolameira/weather-nearby/projects/1
+
+## Technologies
+
+- CRA Scaffold
+- Typescript
+- Sass
+- React
+  - Hooks, Context Api
+  - CSS Modules
+- Reach Router
+- Vercel (super fast static deploys CDN)
+
+# Getting Started
 
 ## Environment Variables
 
@@ -45,8 +87,42 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+# Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## TODO List
+
+- [ ] Detail Screen
+- [ ] Empty State Screens (List)
+- [ ] Motions/Transitions/Animations
+- [ ] Error Handlers
+- [ ] Unit Tests
+- [ ] Darkmode
+- [ ] Improve Performance (web.dev/measure - lazyload map, etc)
+- [ ] CodeSpliting
+- [ ] PWA
+
+
+### Nerd Statistics
+
+
+CODE TIME PROJECT SUMMARY     (Last updated on Mon, Nov 9th 5:25am)
+
+              weather-nearby :                 Nov 1st, 2020 to Nov 7th, 2020
+            Active code time :                                        7.8 hrs
+                   Code time :                                        9.4 hrs
+                  Keystrokes :                                         14,743
+                         Kpm :                                             26
+                 Lines added :                                          2,240
+               Lines deleted :                                          1,586
+            Characters added :                                         63,509
+          Characters deleted :                                         48,635
+-----------------------------------------------------------------------------
+
+<hr />
+
+<h4 align="center">made with ❤️ by</h4>
+<h3 align="center">Diego Lameira</h3>
