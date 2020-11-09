@@ -9,11 +9,29 @@ import {
 import { ReactComponent as Locate } from 'assets/locate.svg';
 import styles from 'styles/components.module.scss';
 import { usePosition } from 'hooks/usePosition';
+import { useCities } from 'hooks/useCities';
+
+interface CoordPos {
+  lat?: number
+  lng?: number
+}
+
+interface State {
+  userLocation: CoordPos
+  position: CoordPos
+  center: CoordPos
+  mapContainerStyle: {
+    width: string
+    height: string
+  }
+  zoom: number
+}
 
 export const Map: React.FC = () => {
+  const { fetchCities } = useCities()
   const { error, position: userPosition, findLocation } = usePosition()
   const searchRef = React.useRef<any>();
-  const [state, setState] = React.useState({
+  const [state, setState] = React.useState<State>({
     userLocation: {},
     position: {},
     mapContainerStyle: {
@@ -27,7 +45,9 @@ export const Map: React.FC = () => {
     zoom: 6,
   });
 
-  const handleClick = ({ latLng }: any) => {
+  const handleClick = ({ latLng: { lat, lng } }: any) => {
+    const latLng = { lat: lat(), lng: lng() }
+    fetchCities(latLng)
     setState((currentState) => ({ ...currentState, position: latLng, center: latLng }));
   }
 
