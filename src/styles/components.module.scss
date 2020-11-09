@@ -101,10 +101,8 @@
     padding-bottom: 6rem;
   }
 
-  @media (min-width: 768px) {
-    main {
-      overflow-y: scroll;
-    }
+  main {
+    overflow-y: auto;
   }
 
   ul {
