@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 interface ContextInterface {
+  error: Error|null
   city: any
   cities: any[]
   isLoading: boolean
@@ -9,6 +10,7 @@ interface ContextInterface {
 }
 
 const InitialState: ContextInterface = {
+  error: null,
   city: {},
   cities: [],
   isLoading: false,
@@ -29,7 +31,7 @@ const CitiesProvider: React.FC = ({ children }) => {
       setState({ ...state, isLoading: false, cities })
     } catch (e) {
       alert('Failed to get cities, verify your internet and try again!')
-      setState({ ...state, isLoading: false })
+      setState({ ...state, error: e,  isLoading: false })
     }
   }
 
@@ -37,11 +39,10 @@ const CitiesProvider: React.FC = ({ children }) => {
     try {
       setState({ ...state, isLoading: true })
       const city = await promise
-      debugger
       setState({ ...state, isLoading: false, city })
     } catch (e) {
       alert('Failed to get city, verify your internet and try again!')
-      setState({ ...state, isLoading: false })
+      setState({ ...state, error: e, isLoading: false })
     }
   }
 

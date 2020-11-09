@@ -41,14 +41,14 @@ const ListItem: React.FC<ListItemProps> = ({ id, weatherType, current, name, min
   const navigate = useNavigate()
 
   const goToDetail = () => {
-    navigate(`/detail/${id}`)
+    navigate(`/detail/${id}`, { state: { id, weatherType, current, name, min, max } })
   }
 
   return (
     <li className={styles.listItem} onClick={goToDetail}>
       <span className="list-item icon"><WeatherIcon weather={weatherType} /></span>
-      <span className="list-item current">{current}</span>
       <strong className="list-item title">{name}</strong>
+      <span className="list-item current">{current}</span>
       <span className="list-item max">{max}</span>
       <span className="list-item min">{min}</span>
     </li>

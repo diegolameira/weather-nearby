@@ -26,7 +26,7 @@ export default function App() {
             isPhone && (
               <>
                 <ListScreen path="/list" />
-                <DetailScreen path="/detail/:id" />
+                <DetailScreen path="/detail/:cityId" />
               </>
             )
           }

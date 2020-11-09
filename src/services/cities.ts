@@ -21,10 +21,10 @@ export const fetchCities = ({ lat, lng }: {lat: number, lng: number}): Promise<a
         id,
         weather,
         weatherType: weather[0]?.main,
-        current,
         name,
-        min,
-        max,
+        current: Math.round(current),
+        min: Math.round(min),
+        max: Math.round(max),
       }))
     })
 }
@@ -51,9 +51,9 @@ export const fetchCityById = (id: number): Promise<any> => {
         id,
         weather,
         weatherType: weather[0]?.main,
-        current,
         name,
-        min,
-        max,
+        current: Math.round(current),
+        min: Math.round(min),
+        max: Math.round(max),
       }))
 }

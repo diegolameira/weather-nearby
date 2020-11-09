@@ -1,10 +1,10 @@
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 
 import { CitiesContext } from 'contexts/cities'
 import * as Service from 'services/cities'
 
 export const useCities = () => {
-  const { city, cities, isLoading, setCities, setCity } = useContext(CitiesContext)
+  const { error, city, cities, isLoading, setCities, setCity } = useContext(CitiesContext)
 
   const fetchCities = ({ lat, lng }: {lat: number, lng: number}) => {
     setCities(Service.fetchCities({ lat, lng }))
@@ -14,5 +14,5 @@ export const useCities = () => {
     setCity(Service.fetchCityById(id))
   }
 
-  return { isLoading, cities, city, fetchCities, fetchCityById }
+  return { error, isLoading, cities, city, fetchCities, fetchCityById }
 }

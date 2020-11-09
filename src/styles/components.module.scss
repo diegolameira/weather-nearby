@@ -147,15 +147,35 @@
 
     [class*=title] {
       width: 100%;
+      padding: 0 .5rem;
+      font-size: 1rem;
+      line-height: 1;
       justify-content: flex-start;
     }
 
+    [class*=current],
     [class*=min],
     [class*=max] {
+      display: none;
       border-radius: 3000px;
-      padding: 0 1rem;
+      padding: 0 .6rem;
       line-height: 1.6rem;
       margin: 0.5rem;
+      align-self: center;
+
+      &:after {
+        content: "º"
+      }
+
+      @media (min-width: 768px) {
+        display: block;
+      }
+    }
+
+    [class*=current] {
+      display: block;
+      background: rgba(0,0,0,1);
+      color: #fff;
     }
 
     [class*=max] {
