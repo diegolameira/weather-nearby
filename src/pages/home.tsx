@@ -8,6 +8,7 @@ import styles from 'styles/pages.module.scss'
 import { Map } from 'components/map'
 import { ListScreen } from './list';
 import { SearchScreen } from './search';
+import { DetailScreen } from './detail'
 
 interface Props extends RouteComponentProps {}
 export const HomeScreen: React.FC<Props> = () => {
@@ -15,7 +16,7 @@ export const HomeScreen: React.FC<Props> = () => {
   const { cities } = useCities()
 
   React.useEffect(() => {
-    if (cities.length) navigate('/search')
+    if (cities?.length) navigate('/search')
   }, [navigate, cities])
 
   return (
@@ -25,6 +26,7 @@ export const HomeScreen: React.FC<Props> = () => {
       <Router>
         <SearchScreen path="/search" />
         <ListScreen path="/list" />
+        <DetailScreen path="/detail/:id" />
       </Router>
     </div>
   )

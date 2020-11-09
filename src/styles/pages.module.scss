@@ -6,8 +6,8 @@
 }
 
 .homeScreen {}
-.detailScreen {}
 
+.detailScreen,
 .listScreen {
   z-index: 2;
   header {
@@ -62,5 +62,9 @@
       display: block;
     }
   }
+
+}
+
+.detailScreen {
 
 }

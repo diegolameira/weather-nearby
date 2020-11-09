@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { WeatherTypes } from 'typings'
+import { useNavigate } from '@reach/router';
 
+import { WeatherTypes } from 'typings'
 import { WeatherIcon } from 'components/weather-icon'
 import styles from 'styles/components.module.scss';
 import { useCities } from 'hooks/useCities';
@@ -29,18 +30,25 @@ export const List: React.FC<ListProps> = ({ header }) => {
 }
 
 interface ListItemProps {
+  id: number
   weatherType: WeatherTypes
   current: string
-  title: string
+  name: string
   min: string
   max: string
 }
-const ListItem: React.FC<ListItemProps> = ({ weatherType, current, title, min, max }) => {
+const ListItem: React.FC<ListItemProps> = ({ id, weatherType, current, name, min, max }) => {
+  const navigate = useNavigate()
+
+  const goToDetail = () => {
+    navigate(`/detail/${id}`)
+  }
+
   return (
-    <li className={styles.listItem}>
+    <li className={styles.listItem} onClick={goToDetail}>
       <span className="list-item icon"><WeatherIcon weather={weatherType} /></span>
       <span className="list-item current">{current}</span>
-      <strong className="list-item title">{title}</strong>
+      <strong className="list-item title">{name}</strong>
       <span className="list-item max">{max}</span>
       <span className="list-item min">{min}</span>
     </li>
