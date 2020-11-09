@@ -1,14 +1,26 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/1857527/98501314-8ed30980-222d-11eb-8c0a-0976aaf68591.png" align="center" style="margin: 0 auto;" />
-</p>
-<h1 align="center">The Weather Nearby</h1>
-<p align="center">
-See how is the weather around the world or nearby you, Wonderfully!
+  <h2 align="center">The Weather Nearby</h2>
+  <p align="center">
+  See how is the weather around the world or nearby you, Wonderfully!
+  </p>
+
+  <p align="center">
+    <br />
+    <a href="https://weather-nearby.vercel.app/">Visit</a>
+    ·
+    <a href="https://github.com/diegolameira/weather-nearby/projects">Know more</a>
+  </p>
 </p>
 
 <br />
 <br />
 <br />
+
+# Preview
+
+![image](https://user-images.githubusercontent.com/1857527/98589992-ea90a780-22ac-11eb-948e-d9e38c49f6eb.png)
+[visit](https://weather-nearby.vercel.app/)
 
 <!-- omit in toc -->
 # Table of Contents
